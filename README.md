@@ -1,1 +1,2 @@
-# Eyakub-Shop2
+# Eyakub-Shop
+Eyakub Shop - Online Fashion Store

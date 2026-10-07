@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Eyakub Shop Admin</title>
+
+  <link rel="stylesheet" href="admin.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+  <!-- LOGIN -->
+  <div id="loginPage">
+
+    <div class="login-card">
+
+      <h1>Eyakub Shop</h1>
+      <p>Admin Panel</p>
+
+      <input
+        id="email"
+        type="email"
+        placeholder="Admin Email"
+      >
+
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+      >
+
+      <button id="loginButton">
+        Login
+      </button>
+
+      <div id="loginMessage"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ADMIN -->
+  <div id="adminPage" class="hidden">
+
+    <header class="topbar">
+
+      <div>
+        <h1>Eyakub Shop</h1>
+        <small>Admin Panel</small>
+      </div>
+
+      <button id="logoutButton">
+        Logout
+      </button>
+
+    </header>
+
+
+    <nav class="navigation">
+
+      <button class="navButton active" data-tab="dashboard">
+        Dashboard
+      </button>
+
+      <button class="navButton" data-tab="products">
+        Products
+      </button>
+
+      <button class="navButton" data-tab="orders">
+        Orders
+      </button>
+
+    </nav>
+
+
+    <main>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="tab active">
+
+        <h2>Dashboard</h2>
+
+        <div class="stats">
+
+          <div class="stat">
+            <strong id="productCount">0</strong>
+            <span>Products</span>
+          </div>
+
+          <div class="stat">
+            <strong id="orderCount">0</strong>
+            <span>Orders</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- PRODUCTS -->
+      <section id="products" class="tab">
+
+        <div class="section-title">
+
+          <h2>Products</h2>
+
+          <button id="addProductButton">
+            + Add Product
+          </button>
+
+        </div>
+
+
+        <!-- PRODUCT FORM -->
+        <div id="productForm" class="form-box hidden">
+
+          <h3 id="formTitle">
+            Add Product
+          </h3>
+
+          <input id="editProductId" type="hidden">
+
+          <input
+            id="productName"
+            type="text"
+            placeholder="Product Name"
+          >
+
+          <select id="productCategory">
+
+            <option value="Shoes">
+              Shoes
+            </option>
+
+            <option value="Ladies Bags">
+              Ladies Bags
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+
+          </select>
+
+
+          <input
+            id="productSubcategory"
+            type="text"
+            placeholder="Subcategory"
+          >
+
+
+          <div class="two-input">
+
+            <input
+              id="productPrice"
+              type="number"
+              placeholder="Price SAR"
+            >
+
+            <input
+              id="productOldPrice"
+              type="number"
+              placeholder="Old Price SAR"
+            >
+
+          </div>
+
+
+          <input
+            id="productStock"
+            type="number"
+            placeholder="Stock"
+          >
+
+
+          <input
+            id="productBadge"
+            type="text"
+            placeholder="Badge (NEW / SALE)"
+          >
+
+
+          <textarea
+            id="productDescription"
+            placeholder="Product Description"
+          ></textarea>
+
+
+          <label class="upload">
+
+            Choose Product Photo
+
+            <input
+              id="productImage"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+            >
+
+          </label>
+
+
+          <img
+            id="imagePreview"
+            class="image-preview hidden"
+            alt="Preview"
+          >
+
+
+          <div class="form-actions">
+
+            <button id="saveProductButton">
+              Save Product
+            </button>
+
+            <button
+              id="cancelProductButton"
+              class="cancel"
+            >
+              Cancel
+            </button>
+
+          </div>
+
+
+          <div id="productMessage"></div>
+
+        </div>
+
+
+        <!-- PRODUCT LIST -->
+        <div id="productsList" class="products-grid">
+
+          <p>Loading products...</p>
+
+        </div>
+
+      </section>
+
+
+      <!-- ORDERS -->
+      <section id="orders" class="tab">
+
+        <h2>Orders</h2>
+
+        <div id="ordersList">
+
+          <p>Loading orders...</p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script src="admin.js"></script>
+
+</body>
+  </html>
